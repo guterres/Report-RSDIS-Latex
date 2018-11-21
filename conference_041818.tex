@@ -22,38 +22,69 @@
 \IEEEauthorblockA{\textit{Autonomous Systems Laboratory} \\
 \textit{Instituto Superior de Engenharia do Porto}\\
 R. Dr. Antonio Bernardino de Almeida 431,4200-072 Porto, Portugal \\
-\{1180099,1180092,118009\}@isep.ipp.pt}
+\{1180099,1180092,1180097\}@isep.ipp.pt}
 \and
 
 }  
-xxx
+
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+This paper reports a configuration of sensores assembled in a microcontroler (STM32), that are measuring environmental variables, such as carbon monoxide, combustbile gas (methane and GLP) and temperature, in the ISEP campus. The environmental data was stamped with the GPS position (via ROS shyncronizion) and presented in a mesh grid. The proof of concept of this activity is important because it shows that ROS packages, and particullarly robots, can be used to automaticaly collect data over a large area and detect any nocive concentration to human health. 
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, formatting, style, styling, insert
+ROS, carbon monoxide, sensing
 \end{IEEEkeywords}
 
 \section{Introduction}
+
+MAke a general introduction to the topic
 This document is a model and instructions for \LaTeX.
 Please observe the conference page limits. 
 
-\section{Ease of Use}
+\section{Material and methods}
+In this section it is described the methodology used to 
 
-\subsection{Maintaining the Integrity of the Specifications}
+\subsection{Gas sensors and GPS}
+\subsubsection{Carbon Monoxide Sensor MQ-7}
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+The Gas Sensor MQ-7 has the ability to detect and measure the concentration of Carbon Monoxide (CO) in a given environment. According to the data sheet, the sensor is capable of detecting between 20 and 2000 ppm CO in the air. Consists of micro AL2O3 ceramic tube , tin dioxide (SnO2) layer sensitive, measuring electrode and heater are fixed into a crust made by plastic and stainless steel net. [ref dataseet: https://www.sparkfun.com/datasheets/Sensors/Biometric/MQ-7.pdf]
+
+\begin{figure}[ht]
+\centering
+    {\includegraphics[width=0.1\textwidth]{img/mq7.png}}
+\caption{Sensor MQ-7}
+\label{mq7}
+\end{figure}
+
+\subsubsection{Analog CO/Combustible Gas Sensor MQ-9}
+
+This sensor detects gas leaks using the SnO2 sensitive material. It makes detection by high and low temperature method and detects when low temperature. When is high temperature, detects gas methane, propane, etc., and cleans other adsorbed gases under low temperature. The sensor contains high sensitivity to carbon monoxide, methane and LPG. It can be used to detect different gases containing CO and combustible gases. It is low cost and suitable for different applications.
+ref  http://www.haoyuelectronics.com/Attachment/MQ-9/MQ9.pdf
+
+
+\begin{figure}[ht]
+\centering
+    {\includegraphics[width=0.1\textwidth]{img/mq9.jpg}}
+\caption{Sensor MQ-9}
+\label{mq9}
+\end{figure}
+
+\subsubsection{Temperature}
+
+
+ \begin{figure}[ht]
+\centering
+    {\includegraphics[width=0.1\textwidth]{img/tmp36.jpg}}
+\caption{Sensor TMP-36}
+\label{tmp36}
+
+e como foi ligado ao PC
+
+\subsection{ROS packages}
+
+ 
 
 \section{Prepare Your Paper Before Styling}
 Before you begin to format your paper, first write and save the content as a 
@@ -201,7 +232,7 @@ copy& More table copy$^{\mathrm{a}}$& &  \\
 \end{center}
 \end{table}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centerline{\includegraphics{fig1.png}}
 \caption{Example of a figure caption.}
 \label{fig}
